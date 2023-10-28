@@ -17,9 +17,8 @@ a {
 }
 
 main {
-  width: 600px;
-  height: 300px;
-  margin: 100px auto;
+  width: 100%;
+  height: 100vh;
   position: relative;
   overflow: hidden;
 }
@@ -32,7 +31,7 @@ main .panel {
   left: 0%;
 }
 main .panel li {
-  width: 100%/5;
+  width: 20%;
   height: 100%;
 }
 main .panel li img {
@@ -42,7 +41,7 @@ main .panel li img {
 }
 main .btns {
   display: flex;
-  gap: 10px;
+  gap: 7px;
   position: absolute;
   bottom: 10px;
   left: 10px;
