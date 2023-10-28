@@ -1,6 +1,6 @@
 const main = document.querySelector('main');
 const [panel, btns] = main.querySelectorAll('ul');
-const speed = 2000;
+const speed = 1000;
 let evtBlock = false;
 /*
   모션 중 이벤트 핸들러 호출방지흐름 (슬라이드 도는 중에 다른 슬라이드 버튼 눌러도 이벤트안되도록)
