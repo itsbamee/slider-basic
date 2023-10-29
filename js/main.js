@@ -1,9 +1,17 @@
 const main = document.querySelector('main');
 const panel = main.querySelector('.panel');
-const [prev, next] = main.querySelectorAll('span');
+const btns = main.querySelectorAll('span');
 const speed = 500;
 let evtBlock = false;
 
+btns.forEach((btn) => {
+	btn.addEventListener('click', () => {
+		if (evtBlock) return;
+		move(btn.className);
+	});
+});
+
+/*
 prev.addEventListener('click', () => {
 	if (evtBlock) return;
 	move('prev');
@@ -13,6 +21,7 @@ next.addEventListener('click', () => {
 	if (evtBlock) return;
 	move('next');
 });
+*/
 
 function move(direction) {
 	evtBlock = true;
