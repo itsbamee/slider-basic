@@ -4,7 +4,15 @@ const btns = main.querySelectorAll('span');
 const speed = 500;
 let evtBlock = false;
 
+init(panel.children.length);
 bindingEvent(btns);
+
+function init(len) {
+	panel.style.width = 100 * len + '%';
+	Array.from(panel.children).forEach((el) => (el.style.width = 100 / len + '%'));
+
+	panel.prepend(panel.lastElementChild);
+}
 
 function bindingEvent(arr) {
 	arr.forEach((btn) => btn.addEventListener('click', () => !evtBlock && move(btn.className)));

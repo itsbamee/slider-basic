@@ -16,7 +16,6 @@ main {
 	overflow: hidden;
 
 	.panel {
-		width: 100% * 5;
 		height: 100%;
 		display: flex;
 		position: absolute;
@@ -25,7 +24,6 @@ main {
 
 		li {
 			position: relative;
-			width: calc(100% / 5);
 			height: 100%;
 			overflow: hidden;
 			background-position: center;
