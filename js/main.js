@@ -17,24 +17,25 @@ Array.from(btns.children).forEach((btn, idx) => {
 */
 
 function createDOM(targetEl, arr) {
-	let tags = '';
-	let tags2 = '';
+	//동적인 ul에 붙일 클래스명을 배열로 저장
 	const names = ['panel', 'btns'];
-	const uls = names.map((name, idx) => {
-		const tag = document.createElement('ul');
-		tag.classList.add(name);
-		return tag;
+
+	//클래스명 배열을 반복처리
+	names.map((name, idx) => {
+		//반복을 돌면서 ul태그 동적생성하고 각각의 클래스명을 적용
+		let tags = '';
+		const ul = document.createElement('ul');
+		ul.classList.add(name);
+
+		//현재 반복도는 순서값이 첫번째 ul이면 배경이미지가 적용된 li반복요소를 내부적으로 삽입하는 태그 문자열 생성
+		//그렇지 않으면 버튼 li요소를 삽입하는 태그 문자열 생성
+		idx === 0 ? arr.forEach((pic) => (tags += `<li style='background-image:url(img/${pic})'></li>`)) : arr.forEach((_, idx) => (tags += `<li class='${idx === 0 && 'on'}'></li>`));
+
+		//동적 ul에 위에서 만든 tags li문자열을 삽입
+		ul.innerHTML = tags;
+		//li가 삽입된 ul을 최종적으로 프레임요소에 추가
+		targetEl.append(ul);
 	});
-
-	arr.forEach((pic) => (tags += `<li style='background-image:url(img/${pic})'></li>`));
-	arr.forEach((_, idx) => (tags2 += `<li class='${idx === 0 && 'on'}'></li>`));
-
-	/*
-	ul.innerHTML = tags;
-	ul2.innerHTML = tags2;
-	targetEl.append(ul);
-	targetEl.append(ul2);
-	*/
 }
 
 function activation(arr, idx) {
