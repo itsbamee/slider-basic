@@ -3,31 +3,38 @@ const main = document.querySelector('main');
 //const [panel, btns] = main.querySelectorAll('ul');
 const speed = 1000;
 let evtBlock = false;
-createDom(main, pics);
 
+createDOM(main, pics);
+
+/*
 Array.from(btns.children).forEach((btn, idx) => {
 	btn.addEventListener('click', (e) => {
 		if (e.target.classList.contains('on') || evtBlock) return;
-
 		activation(Array.from(btns.children), idx);
 		movePanel(panel, idx);
 	});
 });
+*/
 
-function createDom(targetEl, arr) {
+function createDOM(targetEl, arr) {
 	let tags = '';
 	let tags2 = '';
-	const ul = document.createElement('ul');
-	const ul2 = document.createElement('ul');
-	ul.classList.add('panel');
-	ul2.classList.add('btns');
+	const names = ['panel', 'btns'];
+	const uls = names.map((name, idx) => {
+		const tag = document.createElement('ul');
+		tag.classList.add(name);
+		return tag;
+	});
 
 	arr.forEach((pic) => (tags += `<li style='background-image:url(img/${pic})'></li>`));
-	arr.forEach((_, idx) => (tags2 += `<li></li>`));
+	arr.forEach((_, idx) => (tags2 += `<li class='${idx === 0 && 'on'}'></li>`));
+
+	/*
 	ul.innerHTML = tags;
 	ul2.innerHTML = tags2;
 	targetEl.append(ul);
 	targetEl.append(ul2);
+	*/
 }
 
 function activation(arr, idx) {
@@ -37,6 +44,6 @@ function activation(arr, idx) {
 
 function movePanel(el, idx) {
 	evtBlock = true;
-	console.log('function called');
+	console.log('func called!!');
 	new Anime(el, { left: -100 * idx + '%' }, { duration: speed, callback: () => (evtBlock = false) });
 }
