@@ -2,12 +2,26 @@ const main = document.querySelector('main');
 const panel = main.querySelector('.panel');
 const [prev, next] = main.querySelectorAll('span');
 
+prev.addEventListener('click', () => {
+	new Anime(
+		panel,
+		{ left: '-0%' },
+		{
+			duration: 500,
+			callback: () => {
+				panel.prepend(panel.lastElementChild);
+				panel.style.left = '-100%';
+			},
+		}
+	);
+});
+
 next.addEventListener('click', () => {
 	new Anime(
 		panel,
 		{ left: '-200%' },
 		{
-			duration: 2000,
+			duration: 500,
 			callback: () => {
 				panel.append(panel.firstElementChild);
 				panel.style.left = '-100%';
