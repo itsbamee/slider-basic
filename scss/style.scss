@@ -22,22 +22,6 @@ main {
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-attachment: fixed;
-
-			&:nth-of-type(1) {
-				background-image: url(../img/pic1.jpg);
-			}
-			&:nth-of-type(2) {
-				background-image: url(../img/pic2.jpg);
-			}
-			&:nth-of-type(3) {
-				background-image: url(../img/pic3.jpg);
-			}
-			&:nth-of-type(4) {
-				background-image: url(../img/pic4.jpg);
-			}
-			&:nth-of-type(5) {
-				background-image: url(../img/pic5.jpg);
-			}
 		}
 	}
 
