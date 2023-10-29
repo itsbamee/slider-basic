@@ -26,11 +26,10 @@ a {
 	5. 스타일시 nth번째 스타일링 불가
 */
 main {
-  width: 400px;
-  height: 200px;
+  width: 100%;
+  height: 100vh;
   position: relative;
-  margin: 100px auto;
-  border: 1px solid orangered;
+  overflow: hidden;
 }
 main .panel {
   width: 500%;
@@ -48,6 +47,7 @@ main .panel li {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 main .panel li[data-index="1"] {
   background-image: url(../img/pic1.jpg);
