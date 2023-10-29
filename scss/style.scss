@@ -1,10 +1,21 @@
 @import 'reset';
 
+/*
+	좌우순환 슬라이드 구조 필수요건
+	1. 최소 3개 이상의 슬라이더 갯수 확보
+	2. 프레임을 기점으로 양 옆의 여분읫 슬라이더가 필요
+	3. 패널 ul의 위치값을 위의 구조와 같이 변경
+	4. 순환슬라이더는 동적으로 슬라이더의 순서구조가 변경됨
+	5. 스타일시 nth번째 스타일링 불가
+*/
+
 main {
-	width: 100%;
-	height: 100vh;
+	width: 400px;
+	height: 200px;
 	position: relative;
-	overflow: hidden;
+	// overflow: hidden;
+	margin: 100px auto;
+	border: 1px solid orangered;
 
 	.panel {
 		width: 100% * 5;
@@ -12,30 +23,31 @@ main {
 		display: flex;
 		position: absolute;
 		top: 0px;
-		left: 0%;
+		left: -100%;
 
 		li {
+			position: relative;
 			width: calc(100% / 5);
 			height: 100%;
 			overflow: hidden;
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
-			background-attachment: fixed;
+			// background-attachment: fixed;
 
-			&:nth-of-type(1) {
+			&[data-index='1'] {
 				background-image: url(../img/pic1.jpg);
 			}
-			&:nth-of-type(2) {
+			&[data-index='2'] {
 				background-image: url(../img/pic2.jpg);
 			}
-			&:nth-of-type(3) {
+			&[data-index='3'] {
 				background-image: url(../img/pic3.jpg);
 			}
-			&:nth-of-type(4) {
+			&[data-index='4'] {
 				background-image: url(../img/pic4.jpg);
 			}
-			&:nth-of-type(5) {
+			&[data-index='5'] {
 				background-image: url(../img/pic5.jpg);
 			}
 		}
