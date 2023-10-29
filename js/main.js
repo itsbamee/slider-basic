@@ -5,10 +5,7 @@ const speed = 500;
 let evtBlock = false;
 
 btns.forEach((btn) => {
-	btn.addEventListener('click', () => {
-		if (evtBlock) return;
-		move(btn.className);
-	});
+	btn.forEach = btn.addEventListener('click', () => !evtBlock && move(btn.className));
 });
 
 /*
