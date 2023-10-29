@@ -5,7 +5,6 @@ const speed = 1000;
 let evtBlock = false;
 createDom(main, pics);
 
-/*
 Array.from(btns.children).forEach((btn, idx) => {
 	btn.addEventListener('click', (e) => {
 		if (e.target.classList.contains('on') || evtBlock) return;
@@ -14,19 +13,21 @@ Array.from(btns.children).forEach((btn, idx) => {
 		movePanel(panel, idx);
 	});
 });
-*/
 
 function createDom(targetEl, arr) {
 	let tags = '';
+	let tags2 = '';
 	const ul = document.createElement('ul');
+	const ul2 = document.createElement('ul');
 	ul.classList.add('panel');
+	ul2.classList.add('btns');
 
-	arr.forEach((pic, idx) => {
-		//index기준으로 경로를 찾으므로 ../ 안해준다.
-		tags += `<li style='background-image:url(img/${pic})'></li>`;
-	});
+	arr.forEach((pic) => (tags += `<li style='background-image:url(img/${pic})'></li>`));
+	arr.forEach((_, idx) => (tags2 += `<li></li>`));
 	ul.innerHTML = tags;
+	ul2.innerHTML = tags2;
 	targetEl.append(ul);
+	targetEl.append(ul2);
 }
 
 function activation(arr, idx) {
