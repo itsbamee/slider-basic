@@ -4,31 +4,21 @@ const btns = main.querySelectorAll('span');
 const speed = 500;
 let evtBlock = false;
 
-btns.forEach((btn) => {
-	btn.forEach = btn.addEventListener('click', () => !evtBlock && move(btn.className));
-});
+bindingEvent(btns);
 
-/*
-prev.addEventListener('click', () => {
-	if (evtBlock) return;
-	move('prev');
-});
-
-next.addEventListener('click', () => {
-	if (evtBlock) return;
-	move('next');
-});
-*/
+function bindingEvent(arr) {
+	arr.forEach((btn) => btn.addEventListener('click', () => !evtBlock && move(btn.className)));
+}
 
 function move(direction) {
 	evtBlock = true;
 	new Anime(
 		panel,
-		{ left: direction === 'prev' ? '0%' : '-200%' },
+		{ left: direction === btns[0].className ? '0%' : '-200%' },
 		{
 			duration: speed,
 			callback: () => {
-				direction === 'prev' ? panel.prepend(panel.lastElementChild) : panel.append(panel.firstElementChild);
+				direction === btns[0].className ? panel.prepend(panel.lastElementChild) : panel.append(panel.firstElementChild);
 				panel.style.left = '-100%';
 				evtBlock = false;
 			},
