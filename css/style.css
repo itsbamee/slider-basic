@@ -18,11 +18,11 @@ a {
 }
 
 /*
-	좌우순환 슬라이드 구조 필수요건
+	좌우순환 슬라이더 구조 필수요건
 	1. 최소 3개 이상의 슬라이더 갯수 확보
-	2. 프레임을 기점으로 양 옆의 여분읫 슬라이더가 필요
+	2. 프레임기점으로 양 옆에 여분의 슬라이더가 필요
 	3. 패널 ul의 위치값을 위의 구조와 같이 변경
-	4. 순환슬라이더는 동적으로 슬라이더의 순서구조가 변경됨
+	4. 순환슬라이더는 동적으로 슬라이더의 순서 구조가 변경됨
 	5. 스타일시 nth번째 스타일링 불가
 */
 main {
@@ -39,9 +39,9 @@ main .panel {
   left: -100%;
 }
 main .panel li {
-  position: relative;
   height: 100%;
   overflow: hidden;
+  position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,11 +73,31 @@ main > span {
   border: 1px solid #000;
   cursor: pointer;
 }
-main > span.prev {
+main > span.prevBtn {
   left: 20px;
 }
-main > span.next {
+main > span.nextBtn {
   right: 20px;
+}
+main .toggleBtn {
+  cursor: pointer;
+  font: bold 16px/1 "arial";
+  color: #111;
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+}
+main .toggleBtn em:nth-of-type(1) {
+  display: block;
+}
+main .toggleBtn em:nth-of-type(2) {
+  display: none;
+}
+main .toggleBtn.stop em:nth-of-type(1) {
+  display: none;
+}
+main .toggleBtn.stop em:nth-of-type(2) {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */
