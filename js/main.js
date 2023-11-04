@@ -2,10 +2,14 @@ const main = document.querySelector('main');
 const panel = main.querySelector('.panel');
 const btns = main.querySelectorAll('span');
 const speed = 500;
+const interval = 2000;
 let evtBlock = false;
+let timer = null;
 
 init(panel.children.length);
 bindingEvent(btns);
+
+timer = setInterval(() => move(btns[1].className), interval);
 
 function init(len) {
 	panel.style.width = 100 * len + '%';
@@ -26,7 +30,9 @@ function move(direction) {
 		{
 			duration: speed,
 			callback: () => {
-				direction === btns[0].className ? panel.prepend(panel.lastElementChild) : panel.append(panel.firstElementChild);
+				direction === btns[0].className
+					? panel.prepend(panel.lastElementChild)
+					: panel.append(panel.firstElementChild);
 				panel.style.left = '-100%';
 				evtBlock = false;
 			},
