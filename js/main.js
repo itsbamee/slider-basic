@@ -23,6 +23,7 @@ function init(len) {
 function bindingEvent(arr) {
 	arr.forEach((btn) =>
 		btn.addEventListener('click', () => {
+			move(btns[1].className);
 			if (evtBlock) return;
 			//좌우버튼 클릭시 무조건 롤링정지하고 stop 클래스 추가
 			clearInterval(timer);
