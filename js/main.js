@@ -36,6 +36,7 @@ function bindingEvent(arr) {
 
 	toggleBtn.addEventListener('click', (e) => {
 		if (e.currentTarget.classList.contains('stop')) {
+			move(btns[1].className);
 			timer = setInterval(() => move(btns[1].className), interval);
 			e.currentTarget.classList.remove('stop');
 		} else {
