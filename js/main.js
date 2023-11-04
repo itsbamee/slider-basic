@@ -21,20 +21,23 @@ function init(len) {
 }
 
 function bindingEvent(arr) {
-	arr.forEach((btn) => btn.addEventListener('click', () => !evtBlock && move(btn.className)));
+	arr.forEach((btn) =>
+		btn.addEventListener('click', () => {
+			if (evtBlock) return;
+			//좌우버튼 클릭시 무조건 롤링정지하고 stop 클래스 추가
+			clearInterval(timer);
+			toggleBtn.classList.add('stop');
 
-	//토글버튼 클릭 시
+			//슬라이드 기능 구현
+			move(btn.className);
+		})
+	);
+
 	toggleBtn.addEventListener('click', (e) => {
-		//클릭한 버튼의 stop클래스 유무 확인 후
-		//stop 클래스가 있으면 (롤링이 중지된 상태)
 		if (e.currentTarget.classList.contains('stop')) {
-			//자동롤링을 실행하고
 			timer = setInterval(() => move(btns[1].className), interval);
 			e.currentTarget.classList.remove('stop');
-
-			//stop 클래스가 없으면 롤링이 되고 있는 상태
 		} else {
-			//자동롤링을 중지하고 stop클래스 추가
 			clearInterval(timer);
 			e.currentTarget.classList.add('stop');
 		}
